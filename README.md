@@ -21,7 +21,7 @@ Este projeto foi desenvolvido utilizando Laravel para demonstrar conhecimentos e
    ```
 2. Acesse a pasta do projeto:
    ```bash
-   cd nome-do-projeto
+   cd atividade-pw3
    ```
 3. Instale as dependências do Laravel:
    ```bash
