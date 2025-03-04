@@ -31,5 +31,5 @@
         </div>
         
         <div class="flex justify-end">
-            <button type="submit" class="px-6 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition">Cadastrar</button>
+            <button type="submit" class="px-6 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition cursor-pointer">Cadastrar</button>
         </div>

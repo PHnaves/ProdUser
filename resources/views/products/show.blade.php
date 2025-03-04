@@ -25,10 +25,10 @@
                         <span class="text-2xl font-bold text-blue-600">R$ {{ number_format($product->price , 2, ',', '.')}} </span>
                         <div class="text-gray-500 text-sm">
                             <p>Postado em: {{ $product->created_at }}</p>
-                            @if (is_null($product->updated_at) || $product->updated_at == $product->updated_at)
-                                <p>Editado em: {{ $product->updated_at }}</p>
-                            @else
+                            @if (is_null($product->updated_at) || $product->updated_at == $product->created_at)
                                 <p>Produto Ainda Não Editado</p>
+                            @else
+                                <p>Editado em: {{ $product->updated_at }}</p>
                             @endif
                         </div>
                         
