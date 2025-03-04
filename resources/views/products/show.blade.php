@@ -37,7 +37,7 @@
                             <form action="{{ route('products.destroy', $product->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
                                 @csrf
                                 @method('delete')
-                                <button class="py-2 px-6 rounded-lg bg-red-600 text-white text-sm font-semibold shadow-md transition-all duration-300 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <button class="py-2 px-6 rounded-lg bg-red-600 text-white text-sm font-semibold shadow-md transition-all duration-300 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer">
                                     Excluir Produto
                                 </button>
                             </form>
