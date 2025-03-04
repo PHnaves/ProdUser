@@ -28,7 +28,7 @@
                 <form action="{{ route('categories.destroy', $category->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir esta categoria?');">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="px-3 py-1.5 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 transition">
+                    <button type="submit" class="px-3 py-1.5 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 transition cursor-pointer">
                         Deletar
                     </button>
                 </form>
@@ -50,7 +50,7 @@
                     <input name="name" type="text" autocomplete="name" required class="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" placeholder="Nome">
                     <label class="sr-only">Descrição da Categoria</label>
                     <input name="description" type="text" autocomplete="description" required class="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" placeholder="Descrição">
-                    <button type="submit" class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                    <button type="submit" class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">
                         Criar Nova Categoria
                     </button>
                 </form>
