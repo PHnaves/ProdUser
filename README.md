@@ -58,7 +58,7 @@ Este projeto foi desenvolvido utilizando Laravel para demonstrar conhecimentos e
    ```
 
 ## Rotas
-As rotas da aplicação estão definidas no arquivo `routes/web.php`, pois não utilizamos uma API separada.
+As rotas da aplicação estão definidas no arquivo `routes/web.php`.
 
 ### Usuários
 - `GET /users` - Lista todos os usuários.
