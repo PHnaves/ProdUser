@@ -18,6 +18,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="flex flex-col md:flex-row justify-between pb-10 space-y-4 md:space-y-0">
                         <h2 class="text-2xl font-bold tracking-tight text-white">Usuarios Criados</h2>
+                        {{-- link para ir a pagina de criar novo usuario --}}
                         <a href="{{ route('users.create') }}">
                             <button class="py-2 px-6 rounded-lg bg-indigo-600 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer">
                                 Criar Novo Usuario
@@ -35,11 +36,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{-- informacoes do usuario e acoes --}}
                                 @foreach ($users as $user)
                                 <tr class="border-b">
                                     <td class="px-4 py-3">{{ $user->name }}</td>
                                     <td class="px-4 py-3">{{ $user->email }}</td>
                                     <td class="px-4 py-3 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+                                        {{-- links para ir a pagina de editar e ver detalhes do usuario, ambos passando o id do mesmo --}}
                                         <a href="{{ route('users.edit', $user->id) }}" class="text-indigo-600 hover:underline">Editar</a>
                                         <a href="{{ route('users.show', $user->id) }}" class="text-green-600 hover:underline">Detalhes</a>
                                     </td>

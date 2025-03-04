@@ -13,6 +13,7 @@
 
     <ul role="list" class="space-y-4 p-4 bg-gray-900">
       <h2 class="text-2xl font-bold tracking-tight text-white text-center mt-10">Categorias Criadas</h2>
+      {{-- listagem de todas as categorias criadas --}}
       @foreach ($categories as $category)
         <li class="flex justify-between items-center bg-white shadow-md rounded-lg p-4">
             <div class="flex items-center gap-4">
@@ -22,9 +23,11 @@
                 </div>
             </div>
             <div class="flex gap-3">
+              {{-- link para ir para pagina de editar categoria --}}
                 <a href="{{ route('categories.edit', $category->id) }}" class="px-3 py-1.5 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 transition">
                     Editar
                 </a>
+                {{-- formulario para deletar categoria --}}
                 <form action="{{ route('categories.destroy', $category->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir esta categoria?');">
                     @csrf
                     @method('delete')
@@ -44,6 +47,8 @@
               <h2 class="text-4xl font-semibold tracking-tight text-white">Criar Nova Categoria</h2>
               <p class="mt-4 text-lg text-gray-300">Crie Novas Categorias Para Relaciona-las Com Novos Produtos!</p>
               <div class="mt-3 flex flex-col gap-y-4 max-w-md">
+
+                {{-- form para criar uma nova categoria --}}
                 <form class="flex flex-col gap-4" action="{{ route('categories.store') }}" method="post">
                     @csrf
                     <label class="sr-only">Nome da Categoria</label>
@@ -54,6 +59,7 @@
                         Criar Nova Categoria
                     </button>
                 </form>
+
               </div>
             </div>
             <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">

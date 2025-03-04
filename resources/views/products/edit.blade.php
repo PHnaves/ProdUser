@@ -12,9 +12,11 @@
     @include('layouts.nav')
 
     <div class="max-w-4xl mx-auto mt-10 bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 class="text-white text-2xl font-semibold mb-4">Editar Produto</h2> 
+        <h2 class="text-white text-2xl font-semibold mb-4">Editar Produto</h2>
+        {{--formulario para editar produto--}} 
         <form action="{{ route('products.update', $product->id) }}" method="POST" class="space-y-4">
             @method('put')
+            {{-- include do formulario criado de maneira mais dinamica --}}
             @include('products.components.form')
         </form>
     </div>

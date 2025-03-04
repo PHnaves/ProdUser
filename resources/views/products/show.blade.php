@@ -25,6 +25,7 @@
                         <span class="text-2xl font-bold text-blue-600">R$ {{ number_format($product->price , 2, ',', '.')}} </span>
                         <div class="text-gray-500 text-sm">
                             <p>Postado em: {{ $product->created_at }}</p>
+                            {{-- logica para mostrar se o produto foi editado ou nao --}}
                             @if (is_null($product->updated_at) || $product->updated_at == $product->created_at)
                                 <p>Produto Ainda Não Editado</p>
                             @else

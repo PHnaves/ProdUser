@@ -15,6 +15,7 @@
         <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <div class="flex justify-between">
             <h2 class="text-2xl font-bold tracking-tight text-gray-900">Produtos Disponiveis</h2>
+            {{-- botao para ir para pagina de criar um novo produto --}}
               <a href="{{ route('products.create') }}">
                 <button class="py-2 px-6 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer">
                   Criar Novo Produto
@@ -22,12 +23,14 @@
               </a>
           </div>
           <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            {{-- listagem dos produtos que foram criados --}}
               @foreach ($products as $product)
                 <div class="group relative">
                   <img src="{{ $product->image }}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:w-60 lg:h-80">
                   <div class="mt-4 flex justify-between">
                     <div>
                       <h3 class="text-sm text-gray-700">
+                        {{-- link para ver mais detalhes do produto em especifico, onde é passado o id do mesmo --}}
                         <a href="{{ route('products.show', ['product' => $product->id]) }}">
                           <span aria-hidden="true" class="absolute inset-0"></span>
                           {{ $product->name }}

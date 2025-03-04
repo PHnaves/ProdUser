@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    // sistema de seguranca do proprio laravel onde é informado somente os campos que irão para o banco
     protected $fillable = [
         'name',
         'email',
