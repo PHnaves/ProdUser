@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -19,20 +19,11 @@ class UserController extends Controller
     }
 
 
-    public function store(Request $request){
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
-    
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
-
+    public function store(UserRequest $request){
+        $data = $request->validated();
+        $data['password'] = bcrypt($data['password']);
+        
+        User::create($data);
         return redirect()->route('users');
     }
 
@@ -47,17 +38,17 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, string $id){
+    public function update(UserRequest $request, string $id){
 
 
         if (!$user = User::find($id)){
             return redirect()->route('users');
         }
 
-        $data = $request->only('name', 'email');
+        $data = $request->validated();
         
-        if($request->password){
-            $data['password'] = bcrypt($request->password);
+        if(isset($data['password'])){
+            $data['password'] = bcrypt($data['password']);
         }
 
         $user->update($data);
