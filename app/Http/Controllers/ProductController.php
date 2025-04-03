@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -29,25 +29,9 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'id_category' => 'required',
-            'image' => 'required|string'
-        ]);
-    
-        Product::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'id_category' => $request->id_category,
-            'image' => $request->image
-        ]);
-
+        Product::create($request->validated());
         return redirect()->route('products');
     }
 
@@ -79,15 +63,13 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProductRequest $request, string $id)
     {
         if (!$product = Product::find($id)){
             return redirect()->route('products');
         }
-
-        $data = $request->all();
         
-        $product->update($data);
+        $product->update($request->validated());
 
         return redirect()->route('products');
     }
